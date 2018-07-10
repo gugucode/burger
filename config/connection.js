@@ -6,3 +6,5 @@ var mysql_connect = mysql.createConnection({
     	password: "password",
     	database: "burgers_db"
 });
+
+module.exports = mysql_connect.connect();
