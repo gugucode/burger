@@ -4,18 +4,21 @@ var mysql_connection = require("./connection.js");
 function selectAll(table, cb){
     mysql_connection.query("select * from " + table, function(error, results){
         if(error) throw error;
-        cb(result);
+        cb(results);
     });
 }
 
 function create(table,cols,vals,cb){
-
-    mysql_connection.query("INSERT INTO " + table + " " + cols + " value " + vals, function(error, results){
-        if(error){
+    var query = "INSERT INTO " + table;
+    query += " (" + cols.toString() + ")" + " value (?,?)"
+    console.log(query);
+    mysql_connection.query(query, vals, function(error, results){
+        if(error){            
+            // console.log(error);
             return error;
-        };
+        }
         // console.log(results);
-        cb(result);
+        cb(results);
     })
 }
 
@@ -24,7 +27,7 @@ function update(table,vals,condition,cb){
         if(error){
             return error;
         }
-        cb(result);
+        cb(results);
     })
 }
 

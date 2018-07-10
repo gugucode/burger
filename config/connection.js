@@ -7,4 +7,12 @@ var mysql_connect = mysql.createConnection({
     	database: "burgers_db"
 });
 
-module.exports = mysql_connect.connect();
+mysql_connect.connect(function(error){
+	if(error){
+		console.log(error);
+		return;
+	}
+	console.log("Connected as id " + mysql_connect.threadId);
+});
+
+module.exports = mysql_connect;

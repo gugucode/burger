@@ -1,6 +1,49 @@
 
-<h1>Eat-Da-Burger</h1>
-<form>
-<textarea type="text" id="burger_name"></textarea>
-<button type="submit">Submit</button>
-</form>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-4 align-self-center">
+            <img src="http://33.media.tumblr.com/a3177a20efb9f2d64b19f71e06e2ed20/tumblr_n8dlazDq9E1skcd7fo1_r1_500.gif" alt="burger image" height="270" width="220">
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-5 align-self-center">
+            <h1>Eat-Da-Burger</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-6 align-self-center" id="notdevoured">
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                    {{else}}
+                        {{> burgers/burger-block}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm-12 col-md-6 align-self-center" id="devoured">
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{> burgers/burger-block}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-5 align-self-center">
+            <form class="create-form">
+                <div class="form-group">
+                    <textarea class="form-control" id="burger_name" placeholder="Cheese burger"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
