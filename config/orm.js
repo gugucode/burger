@@ -8,28 +8,22 @@ function selectAll(table, cb){
     });
 }
 
-function create(table,cols,vals,cb){
+function insertOne(table,cols,vals,cb){
     var query = "INSERT INTO " + table;
     query += " (" + cols.toString() + ")" + " value (?,?)"
-    console.log(query);
     mysql_connection.query(query, vals, function(error, results){
-        if(error){            
-            // console.log(error);
-            return error;
-        }
-        // console.log(results);
+        if(error) throw error;
         cb(results);
     })
 }
 
-function update(table,vals,condition,cb){
-    mysql_connection.query("UPDATE " + table + " SET " + vals + " WHERE " + condition, function(error, results){
-        if(error){
-            return error;
-        }
+function updateOne(table,vals,condition,cb){
+    var query = "UPDATE " + table + " SET " + vals + " WHERE " + condition;
+    mysql_connection.query(query, function(error, results){
+        if(error) throw error;        
         cb(results);
     })
 }
 
-module.exports = {selectAll,create,update};
+module.exports = {selectAll,insertOne,updateOne};
 
