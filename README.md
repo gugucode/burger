@@ -9,7 +9,7 @@ Eat-Da-Burger! is a restaurant app that lets users input the names of burgers th
 * After download, in your terminal, run "npm install" inside the burger folder that has package.json to install dependend packages.
 * Install mySql 8.0 and start the mySql server. Run "mysql -u user_name -p < schema.sql" and "mysql -u user_name -p < seed.sql" in burger/db folder on terminal to create "burgers_db" database and "burgers" table. Also, it will insert some dummy data into database for your test.
 * Modify host, port, user, and password in config/connection.js if they are different from yours. This file contains your database's access info.
-* You can find the deployed version at https://dashboard.heroku.com/apps/polar-brushlands-54590
+* You can find the deployed version at https://polar-brushlands-54590.herokuapp.com/
 
 ### How to use Eat-Da-Burger!
 
